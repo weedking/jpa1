@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p th:text="#{login.welcome}">Welcome to our grocery store!</p>
+    <h1 th:text="#{login.i18n_page}">11</h1>
+    <h3 th:text="#{login.hello}">22</h3>
+
+    <section id="content">
+    <form id="register">
+        <label for="did">部门ID</label><input type="text" id="did" name="did" />
+        <label for="dname">部门名称</label><input type="text" id="dname" name="dname" />
+
+        <!--<input type="submit" value="提交"/>-->
+        <input type="submit" value="提交" onclick='window.open("http://localhost:8080/t1/myindex")'/>
+    </form>
+    </section>
+
+    <section id="resultList">
+        <div id="container">
+            <!--<h1>测试1</h1>-->
+            <!--<p th:text="'Hello, ' + ${title}" /><br/>-->
+            <table width="300" border="1" cellspacing="1" cellpadding="0">
+                <thead>
+                <th>部门ID</th>
+                <th>部门名</th>
+                </thead>
+                <tbody>
+                <tr th:each="de,deState:${de}">
+                    <td th:text="${de.id}"></td>
+                    <td th:text="${de.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script th:src="@{/js1/jquery-3.3.1.js}" src="../static/js1/jquery-3.3.1.js"></script>
+    <script th:src="@{/js1/jq-post.js}" src="../static/js1/jq-post.js"></script>
+
+</body>
+</html>
